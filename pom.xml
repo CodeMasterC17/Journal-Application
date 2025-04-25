@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<!--Spring Boot parent POM that provides default configurations, dependency management, and plugin management-->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.4.4</version>
+		<relativePath/> <!-- Looks up the parent from the repository rather than a local path -->
+	</parent>
+
+	<!--Group ID uniquely identifies your project across all projects (usually based on domain name)-->
+	<groupId>net.engineeringdigest</groupId>
+
+	<!--Artifact ID is the name of the jar without version, used as the project name in Maven Central-->
+	<artifactId>journalApplication</artifactId>
+
+	<!--Project version; SNAPSHOT means it is under active development-->
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!--Human-readable name for the project-->
+	<name>journalApplication</name>
+
+	<!--Brief description of the project-->
+	<description>E2EE Journal Application</description>
+
+	<!--Optional project URL (can link to documentation or homepage)-->
+	<url/>
+
+	<!--Licensing information for the project (recommended for open-source projects)-->
+	<licenses>
+		<license/>
+	</licenses>
+
+	<!--Details about developers contributing to the project-->
+	<developers>
+		<developer/>
+	</developers>
+
+	<!--Source Control Management (SCM) details like Git or SVN repository connections-->
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+
+	<!--Defines the Java version used for compiling the project-->
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+
+
+	<!-- ============================================================================================================-->
+	<dependencies>
+
+		<!--Spring Boot starter for adding Spring Security features like authentication and authorization-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!--Spring Boot starter for building web applications, including restFull services using Spring MVC-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!--Spring Boot development tools for automatic restarts, live reload, and configurations that help during development-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!--Lombok library to reduce boilerplate code like getters, setters, constructors, and more-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+
+		<!--Spring Boot test dependency for general testing (JUnit, Mockito, MockMvc, etc.)-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!--Spring Security test dependency for mocking users and testing secure endpoints-->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!--Spring Boot starter for integrating MongoDB as a NoSQL data source-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+
+		<!--Spring Boot starter for integrating Redis for caching or in-memory data storage-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<!--Spring Boot starter for sending emails using JavaMailSender-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
+		<!--Jakarta Bean Validation API for defining validation constraints-->
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+		</dependency>
+
+		<!--Hibernate implementation of the Jakarta Bean Validation API-->
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+
+	</dependencies>
+
+
+	<!--=============================================================================================================-->
+	<build>
+		<plugins>
+
+			<!--Maven Compiler Plugin configured to support annotation processing with Lombok-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+
+			<!--Spring Boot Maven Plugin used to package the application as an executable JAR with support for re-package, run, and build features. Lombok is excluded to prevent it from being bundled.-->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
