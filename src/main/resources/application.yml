@@ -43,7 +43,7 @@ spring:
       sasl:
         mechanism: PLAIN
         jaas:
-          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="${KAFKA_NAME}" password="${KAFKA_PASSWORD}";
+          config: "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"${KAFKA_NAME}\" password=\"${KAFKA_PASSWORD}\";"
 
 
 weather:
