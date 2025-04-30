@@ -1,6 +1,5 @@
 package net.engineeringdigest.journalapplication.controller;
 
-import jakarta.validation.Valid;
 import net.engineeringdigest.journalapplication.entity.JournalEntry;
 import net.engineeringdigest.journalapplication.entity.User;
 import net.engineeringdigest.journalapplication.service.JournalEntryService;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/journal")
